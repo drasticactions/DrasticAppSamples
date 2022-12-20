@@ -1,0 +1,38 @@
+<local:BaseViewModelControl
+    x:Class="Recipies.WinUI.RecipeQueryGridView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Recipies.WinUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:models="using:Recipies.Models"
+    mc:Ignorable="d">
+
+    <Grid>
+        <GridView
+            Visibility="{x:Bind viewModel.IsEmpty, Mode=OneWay, Converter={StaticResource BooleanToVisbilityInverter}}"
+            SelectionMode="Single"
+            IsItemClickEnabled="True"
+            ItemsSource="{x:Bind viewModel.Recipes}">
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem" BasedOn="{StaticResource DefaultGridViewItemStyle}">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </GridView.ItemContainerStyle>
+
+
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="models:Recipe">
+                    <Grid CornerRadius="5" Width="250" Height="200">
+                        <controls:ImageEx CacheMode="BitmapCache" Stretch="UniformToFill" Source="{x:Bind ImageUrl}"/>
+                        <StackPanel Orientation="Vertical" Height="40" VerticalAlignment="Bottom" Padding="5,1,5,1"
+                    Background="{ThemeResource AcrylicInAppFillColorDefaultBrush}" Opacity=".75">
+                            <TextBlock FontWeight="Bold" Text="{x:Bind RecipeName}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</local:BaseViewModelControl>

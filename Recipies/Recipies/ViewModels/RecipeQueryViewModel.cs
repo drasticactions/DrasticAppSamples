@@ -18,6 +18,7 @@ namespace Recipies.ViewModels
             this.query = query;
             this.SearchViaMealType = new AsyncCommand<MealType>(async (type) => { }, null, this.ErrorHandler);
             this.SearchViaString = new AsyncCommand<string>(async (query) => { }, null, this.ErrorHandler);
+            this.Recipes.CollectionChanged += (object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) => this.OnPropertyChanged(nameof(this.IsEmpty));
         }
 
         public AsyncCommand<MealType> SearchViaMealType { get; }
@@ -25,6 +26,8 @@ namespace Recipies.ViewModels
         public AsyncCommand<string> SearchViaString { get; }
 
         public ObservableCollection<Recipe> Recipes { get; } = new ObservableCollection<Recipe>();
+
+        public bool IsEmpty => !this.Recipes.Any();
 
         public override async Task OnLoad()
         {
@@ -35,6 +38,7 @@ namespace Recipies.ViewModels
         private async Task LoadTempData()
         {
             this.Recipes.Clear();
+
             this.recipeQuery = this.Client.QueryRecipeDataAsync(new SearchQuery(MealType.Breakfast))!;
             foreach (var item in this.recipeQuery.Hits!)
             {

@@ -10,7 +10,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
@@ -50,6 +49,9 @@
                     <TextBlock Text="{Binding IsLoadingText}" VerticalAlignment="Center" Foreground="White" />
                 </StackPanel>
             </DataTemplate>
+
+            <local:BooleanToVisbilityConverter x:Name="BooleanToVisbilityConverter"/>
+            <local:BooleanToVisbilityInverter x:Name="BooleanToVisbilityInverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
