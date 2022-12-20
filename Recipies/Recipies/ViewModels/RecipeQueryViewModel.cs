@@ -12,7 +12,7 @@ namespace Recipies.ViewModels
         private SearchQuery? query;
         private RecipeQuery? recipeQuery;
 
-        public RecipeQueryViewModel(SearchQuery? query, IServiceProvider services)
+        public RecipeQueryViewModel(IServiceProvider services, SearchQuery? query = null)
             : base(services)
         {
             this.query = query;

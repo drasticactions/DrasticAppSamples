@@ -22,8 +22,8 @@ namespace Recipies.Services
         {
             this.fakeRecipe = new Faker<Recipe>()
                 .RuleFor(r => r.RecipeName, f => f.Lorem.Word())
-                .RuleFor(r => r.Ingredients, f => f.Make<string>(10, h => f.Lorem.Sentence()))
-                .RuleFor(r => r.ImageUrl, f => f.Image.LoremFlickrUrl(keywords: "food"))
+                .RuleFor(r => r.Ingredients, f => f.Make<string>(10, h => f.Lorem.Sentence()).ToArray())
+                .RuleFor(r => r.ImageUrl, f => f.Image.PicsumUrl())
                 .RuleFor(r => r.RecipeUrl, f => f.Lorem.Word());
 
             this.fakeHit = new Faker<Hit>()
