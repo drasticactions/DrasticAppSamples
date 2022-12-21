@@ -12,10 +12,10 @@
         <NavigationView.Content>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="550"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <local:RecipeQueryGridView />
+                <local:RecipeQueryGridView  />
             </Grid>
         </NavigationView.Content>
     </NavigationView>
