@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-ios;net7.0-maccatalyst;net7.0-tvos</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="Drastic.iCarousel" Version="1.0.0" />
+	  <PackageReference Include="Drastic.PureLayout" Version="1.0.4" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Images\" />
+	  <None Remove="Images\1.png" />
+	  <None Remove="Images\2.png" />
+	  <None Remove="Images\3.png" />
+	  <None Remove="Images\4.png" />
+	  <None Remove="Images\5.png" />
+	  <None Remove="Images\6.png" />
+	  <None Remove="Images\7.png" />
+	  <None Remove="Images\8.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Images\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Images\2.png" />
+	  <EmbeddedResource Include="Images\3.png" />
+	  <EmbeddedResource Include="Images\4.png" />
+	  <EmbeddedResource Include="Images\5.png" />
+	  <EmbeddedResource Include="Images\6.png" />
+	  <EmbeddedResource Include="Images\7.png" />
+	  <EmbeddedResource Include="Images\8.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Images\1.png" />
+	</ItemGroup>
+</Project>
